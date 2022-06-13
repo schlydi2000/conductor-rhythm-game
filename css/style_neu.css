@@ -1,0 +1,266 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, .8));
+  --late-color: rgba(189, 31, 23, .8);
+  --early-color: rgba(241, 184, 23, .8);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: var(--background);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+h2 {
+  padding: 1rem;
+  text-transform: uppercase;
+}
+
+.game {
+  position: relative;
+  display: flex;
+  flex: 0 0%;
+  flex-direction: column;
+  background: black;
+  background-size: contain;
+  background-repeat:no-repeat;
+  background-position: center;
+  margin: 0 auto;
+  position: relative;
+}
+
+.track-container {
+  display: flex;
+  flex: 1 0 auto;
+}
+
+.track {
+  position: relative;
+  flex: 0 0 calc(100%);
+}
+
+.track:not(:last-child) {
+  border-right: 1px solid grey;
+}
+
+.flash {
+  width: 200px;
+  height: 200px;
+  background-color: transparent;
+  visibility: hidden;
+}
+         
+.note {
+  position: absolute;
+  width: 100%;
+  height: 1.5rem;
+  top: -1.5rem;
+}
+
+.hit {
+  position: absolute;
+  width: 50%;
+  height: 20%;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  visibility: hidden;
+}
+
+.hit__accuracy {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  font-size: 4rem;
+}
+
+.hit__accuracy--late {
+  color: var(--late-color);
+  opacity: 0;
+  animation: fade 1s;
+}
+
+.hit__accuracy--early {
+  color: var(--early-color);
+  opacity: 0;
+  animation: fade 1s;
+}
+
+.menu {
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  flex: 0 100%;
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+  justify-content: space-around;
+  transition: all 1s;
+}
+
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  border: 1px solid white;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all .2s;
+  color: white;
+  margin: 0 auto;
+  transition: all .2s;
+}
+
+.btn:hover,
+.btn:active {
+  background: white;
+  color: black;
+}
+
+.btn--small {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  line-height: 7rem;
+  vertical-align: center;
+}
+
+.btn--primary {
+  border-radius: 1rem;
+  padding: 2rem 4rem;
+  margin: auto;
+}
+
+.menu_start {
+  margin: auto;
+}
+
+.menu_description {
+	margin-top: auto;
+}
+
+.menu_select {
+	margin-top: auto;
+}
+
+.summary {
+  position: absolute;
+  width: 20%;
+  height: 100%;
+  left: 80%;
+  color: white;
+  text-align: center;
+  z-index: -100;
+}
+
+.timer {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  font-size: 3rem;
+  opacity: 0;
+  transition: all 1s;
+}
+
+.score {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  font-size: 3rem;
+  opacity: 0;
+  transition: all 10ms;
+}
+
+.result {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 80%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  opacity: 0;
+  transition: all 2s;
+}
+
+.result__heading {
+  display: flex;
+  font-size: 3rem;
+  padding: 1rem;
+}
+
+.score__count {
+  /*flex: 0 0 45%;*/
+  text-align: center;
+}
+
+@keyframes moveDown {
+  0% { top: -1.5rem; }
+  98% { top: 100%; opacity: 1; }
+  100% { top: 105%; opacity: 0; }
+}
+
+@keyframes moveDownFade {
+  0% { top: -1.5rem; }
+  60% { opacity: 1; }
+  80% { opacity: 0; }
+  98% { top: 100%; opacity: 0; }
+  100% { top: 105%; opacity: 0; }
+}
+
+@keyframes fade {
+  10% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes scaleFade {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+@keyframes scaleBorder {
+  100% {
+    width: 10rem;
+    height: 10rem;
+    border: 2px solid transparent;
+  }
+}
+
+@keyframes flash {
+  0% {
+	background-color: rgba(225,20,20,.85);
+  }
+  10% {
+	background-color: transparent;
+  }
+}

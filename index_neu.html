@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta property="og:title" content="Rhythm" />
+    <meta
+      property="og:description"
+      content="A game where you have to try to hit the beats of the music at the right time"
+    />
+   <link rel="stylesheet" href="css/style_neu.css" />
+    <title>Conductor Training Game</title>
+  </head>
+
+  <body>
+    <audio class="song" ></audio>
+	<main>
+	  <div class="hit">
+        <div class="flash"></div>		
+		<div class="hit__accuracy"></div>
+      </div>
+	  <div class="game">   
+	    <div class="track-container"></div>
+	  </div>
+	  
+	  <div class="menu">
+        <div class="menu_description">
+		  <p>This is a small rhythm game which simulates the phenomenon of "conducting ahead" in its simplest form controlled either by mouse or with the spacebar:</br></br>
+		     Where the beat is supposed to be press either "space" or move your mouse so that the lowest point is at the beat.</br>
+			 Your beat should be about 150-400ms ahead of the beat in the music.</br>
+			 To turn pages press "A" (backward) or "D" (forward).</br></br>
+			 There will be two flashes before the music starts to indicate the starting point and tempo. </br></br>
+			 You can choose between two different songs.
+		</div>
+		<div class="menu_select">
+		  <form>
+			<label for="music">Select the music</label>
+			<select id="music">
+			  <option value="0">Annenpolka</option>
+			  <option value="1">Salut D'Amour</option>
+			</select>
+		  </form>
+		  <form>
+			<label for="control">Select the way you want to control the game</label>
+			<select id="control">
+			  <option value="0">Spacebar</option>
+			  <option value="1">Mouse</option>
+			</select>
+		  </form>
+		</div>
+		<div class="menu_start">
+		  <a class="btn btn--primary btn--start" href="#">Start</a>
+        </div>  
+	  </div>
+
+      <div class="summary">
+        <div class="timer"></div>
+		<div class="score"></div>
+		<div class="combo"></div>
+		<div class="result">
+		  <h2 class="result__heading">Finished</h2>
+          <div class="result__score">
+            <p class="score__count"></p>
+          </div>
+		</div>
+      </div>
+    </main>
+
+    <script src="scripts/beat_files_neu.js"></script>
+    <script src="scripts/script_neu.js"></script>
+  </body>
+</html>
